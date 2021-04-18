@@ -38,11 +38,20 @@ import seaborn as sns
 import itertools
 import gc
 import pickle
+import sys
+import argparse
+
+
+parser = argparse.ArgumentParser(description="Training the model")
+parser.add_argument('training directory', metavar='train_dir', help='path of training data directory')
+parser.add_argument('testing directory', metavar='val_dir', help='path of testing data directory')
+args = parser.parse_args()
+train_dir = sys.argv[1]
+val_dir = sys.argv[2]
+
 
 
 ## preprocessing
-train_dir = "0318_png\Train"
-val_dir = "0318_png\Test"
 train = []
 train_y = []
 val = []
@@ -84,6 +93,8 @@ model_cnn.add(GlobalAveragePooling2D())
 model_cnn.add(Dense(64, activation='relu'))
 model_cnn.add(Dense(num_classes, activation='softmax'))
 
+
+# create data for training and testing
 
 def create_train(dataset, pre_model):
     x_scratch = []
