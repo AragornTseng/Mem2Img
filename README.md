@@ -16,7 +16,7 @@
 
 ## Execution
 
-1. Put the resident-malware memory blocks dataset into the directory [`"1_raw_memory_blocks"\`]("1_raw_memory_blocks"/)
+1. Put the resident-malware memory blocks dataset into the directory [`"1_raw_memory_blocks\`]("1_raw_memory_blocks/)
 
 2. Open the PowerShell and run `split_data.ps1` (take a few minutes)
     * Run [`split_data.ps1`](split_data.ps1)
