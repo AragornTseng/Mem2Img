@@ -47,7 +47,7 @@
     # Make sure your current directory is correct
     PS> python3 train.py 3_png\Train(training_dir) 3_png\Testing(testing_dir) 
     ```
-
+    - generate training model and output the testing score
 
 ## Testing
 
@@ -56,6 +56,7 @@
     # Make sure your current directory is correct
     PS> python3 test.py (testing image path) 
     ```
+    - ouput the predicted class and the nearest five points in training datasets
 - Model file is loacated on goole drive
     - https://drive.google.com/drive/folders/1S_lEU3lMiU5wwY8eBNB6OrwgHJogZBU9?usp=sharing
 ## Visualization

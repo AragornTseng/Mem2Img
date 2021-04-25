@@ -46,7 +46,7 @@ model_vgg = VGG16(weights = 'model/vgg16_weights.hdf5',include_top=False)
 model_V3 = InceptionV3(weights="model/inception_v3.hdf5", include_top=False)
 model_cnn = load_model("model/cnn_model.best.hdf5")
 model_cnn1 = Sequential()
-for layer in model_cnn.layers[:-3]: # go through until last layer
+for layer in model_cnn.layers[:-3]: # go through until last three layer
     model_cnn1.add(layer)
 pca_reload = pickle.load(open("model/pca_mode.pkl",'rb'))
 loaded_model = pickle.load(open('model/logistic_model.sav', 'rb'))
