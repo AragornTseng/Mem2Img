@@ -63,5 +63,6 @@
 
 - The code for visualization is in [`visualization.ipynb`](visualization.ipynb)
     - confusion matrix
+    - t-sne
     - saliency map
     - grand-cam 
