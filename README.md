@@ -46,7 +46,8 @@
     # Make sure your current directory is correct
     PS> python3 test.py (testing image path) 
     ```
-
+- Model file is loacated on goole drive
+    - https://drive.google.com/drive/folders/1S_lEU3lMiU5wwY8eBNB6OrwgHJogZBU9?usp=sharing
 ## Visualization
 
 - The code for visualization is in [`visualization.ipynb`](visualization.ipynb)
