@@ -58,6 +58,7 @@
     ```
     - ouput the predicted class and the nearest five points in training datasets
 - Model file is loacated on goole drive
+    - There's a note.txt in [`model\`](model/) to describe each model file
     - https://drive.google.com/drive/folders/1S_lEU3lMiU5wwY8eBNB6OrwgHJogZBU9?usp=sharing
 ## Visualization
 
