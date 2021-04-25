@@ -25,6 +25,7 @@ import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 from PIL import Image
 from keras import applications
+from keras.models import load_model
 np.random.seed(10)
 # Importing sklearn libraries
 from sklearn.model_selection import GridSearchCV
@@ -134,11 +135,12 @@ history = model_cnn.fit(train_x, y_train,
           validation_data=(val_x, y_val), shuffle=True)
 
 
-from keras.models import load_model
 model_cnn1 = Sequential()
 for layer in model_cnn.layers[:-3]: # go through until last layer
     model_cnn1.add(layer)
 
+
+## Create feature
 class LocalBinaryPatterns:
     def __init__(self, numPoints, radius):
         # store the number of points and radius
@@ -193,7 +195,7 @@ def create_v3_features(dataset, pre_model):
     del x, features
     gc.collect()
     return features_flatten
-def create_cnn_feature_test(dataset, pre_model):
+def create_cnn_feature(dataset, pre_model):
     
     x_scratch = []
     for imagePath in dataset:
@@ -225,8 +227,8 @@ vgg_train_features_flatten = create_vgg_features(train, model_vgg16)
 vgg_val_features_flatten = create_vgg_features(val, model_vgg16)
 v3_train_features_flatten = create_v3_features(train, model_V3)
 v3_val_features_flatten = create_v3_features(val, model_V3)
-cnn_features_flatten = create_cnn_feature_test(train, model_cnn1)
-cnn_val_features_flatten = create_cnn_feature_test(val, model_cnn1)
+cnn_features_flatten = create_cnn_feature(train, model_cnn1)
+cnn_val_features_flatten = create_cnn_feature(val, model_cnn1)
 train_lbp_features_flatten = create_lbp_features(train)
 val__lbp_features_flatten = create_lbp_features(val)
 x = np.append(vgg_train_features_flatten,v3_train_features_flatten,axis=1)
@@ -237,6 +239,8 @@ y = np.append(y,cnn_val_features_flatten,axis=1)
 y = np.append(y,val__lbp_features_flatten,axis=1)
 
 
+
+## Training
 scaler = StandardScaler()
 
 # Fit on training set only.
@@ -254,6 +258,6 @@ y = pca.transform(y)
 logisticRegr = LogisticRegression(solver = 'lbfgs',class_weight= weights)
 logisticRegr.fit(x, train_y)
 score = logisticRegr.score(y, val_y)
-print(score)
+print("Testing Score:"+score)
 pickle.dump(pca, open("pca_mode.pkl","wb"))
 pickle.dump(logisticRegr, open('logistic_model.sav', 'wb'))
