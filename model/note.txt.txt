@@ -1,0 +1,13 @@
+vgg16 model: vgg16_weights.hdf5
+InceptionV3 model: inception_v3.hdf5
+Pretrained CNN model: cnn_model.best.hdf5
+pca weight: pca_mode.pkl
+logistic weight: logistic_model.sav
+
+training dataset embedding after pca : embedding.npy
+training dataset label: label.npy
+
+
+
+data link:
+https://drive.google.com/drive/folders/1S_lEU3lMiU5wwY8eBNB6OrwgHJogZBU9?usp=sharing
