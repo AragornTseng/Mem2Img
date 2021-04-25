@@ -3,7 +3,16 @@
     - Mem2Img: Memory-Resident Malware Detection via Convolution Neural Network
     - https://www.blackhat.com/asia-21/briefings/schedule/#memimg-memory-resident-malware-detection-via-convolution-neural-network-22262
 ## Installation
-
+1. Clone this repository on your machine
+    ```bash
+    # Clone the repository on "master" branch
+    $ git clone -b master https://github.com/AragornTseng/Mem2Img
+    ```
+2. Install the required packages via the following command
+    ```bash
+    # Run the command at the root of the repository
+    $ pip3 install -r requirements.txt
+    ```
 
 ## Execution
 
